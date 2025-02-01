@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(45deg, #ff6ec7, #f3a183);
+            animation: gradientAnimation 10s ease-in-out infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background: linear-gradient(45deg, #ff6ec7, #f3a183);
+            }
+            50% {
+                background: linear-gradient(45deg, #7a9e9f, #20b2aa);
+            }
+            100% {
+                background: linear-gradient(45deg, #ff6ec7, #f3a183);
+            }
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #333;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container input {
+            margin-bottom: 15px;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            transition: border 0.3s ease-in-out;
+            background-color: #f8f8f8;
+        }
+
+        .form-container input:focus {
+            border: 2px solid #3498db;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        .form-container button {
+            padding: 14px;
+            background-color: #3498db;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .toggle-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .toggle-link a {
+            color: #3498db;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Keyframe animations */
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Applying animation */
+        .form-container .register-form {
+            animation: slideIn 0.5s ease-out;
+        }
+
+        /* Floating abstract particles */
+        .particle {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: floatParticles 5s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        .particle:nth-child(1) {
+            top: 5%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            top: 30%;
+            left: 50%;
+            animation-delay: 1s;
+        }
+
+        .particle:nth-child(3) {
+            top: 70%;
+            right: 20%;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(4) {
+            top: 50%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        .particle:nth-child(5) {
+            top: 10%;
+            left: 80%;
+            animation-delay: 4s;
+        }
+
+        @keyframes floatParticles {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                transform: translateY(-30px) translateX(20px);
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+        }
+
+        /* SVG Background Animation */
+        .svg-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            animation: moveSVG 10s linear infinite;
+        }
+
+        @keyframes moveSVG {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background SVG Animation -->
+    <svg class="svg-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500">
+        <path d="M0 150 C200 200, 400 100, 600 150 C800 200, 1000 100, 1200 150 V500 H0 Z" fill="rgba(255,255,255,0.2)" />
+    </svg>
+
+    <!-- Floating Abstract Particles -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Register</h2>
+            <form class="register-form">
+                <input type="text" placeholder="Username" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit">Register</button>
+            </form>
+
+            <div class="toggle-link">
+                <p>Already have an account? <a href="login.html">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript is not necessary anymore because there's no toggle behavior for registration
+    </script>
+</body>
+</html>
